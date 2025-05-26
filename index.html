@@ -26,7 +26,7 @@
       },
     };
   </script>
-  <style>
+   <style>
     .bg-img-1 { background-image: url('img/1.jpg'); }
     .bg-img-2 { background-image: url('img/2.jpg'); }
     .bg-img-3 { background-image: url('img/3.jpg'); }
@@ -43,57 +43,104 @@
     .bg-img-14 { background-image: url('img/14.jpg'); }
     .bg-img-15 { background-image: url('img/15.jpg'); }
     .bg-img-16 { background-image: url('img/16.jpg'); }
+  
+    .image-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .image-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .text-section {
+      animation: fadeInLeft 0.8s ease-out;
+    }
+
+    .image-grid {
+      animation: fadeInRight 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
   </style>
 </head>
-<body class="font-poppins bg-custom-gray text-white">
-  <div class="min-h-screen w-full flex flex-col lg:flex-row items-center justify-center px-6 py-12 gap-12 lg:gap-0">
+<body class="font-poppins bg-custom-gray text-white overflow-x-hidden">
+  <div class="min-h-screen w-full flex flex-col xl:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12 gap-8 lg:gap-12 xl:gap-16">
     
     <!-- Section texte -->
-    <div class="max-w-md lg:w-[449px] lg:h-[582px] flex flex-col gap-6">
+    <div class="text-section w-full max-w-md lg:max-w-lg xl:w-auto flex flex-col gap-4 lg:gap-6 text-center xl:text-left">
       <!-- Titre -->
-      <div class="text-[48px] lg:text-[72px] font-bold leading-tight" style="line-height: 1.6;">
-        <p class="text-design-pink">Design.</p>
-        <p class="text-create-blue">Create.</p>
+      <div class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight" style="line-height: 1.4;">
+        <p class="text-design-pink mb-2">Design.</p>
+        <p class="text-create-blue mb-2">Create.</p>
         <p class="text-inspire-teal">Inspire.</p>
       </div>
 
       <!-- Description -->
-      <p class="text-lg lg:text-xl leading-relaxed" style="width: 449px; height: 144px; font-size: 24px; line-height: 1.5; letter-spacing: 0%; color: #FFFFFF;">
+      <p class="text-base sm:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-md lg:max-w-lg text-white/90">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus in libero risus semper habitant arcu eget. Et integer facilisi eget.
       </p>
 
       <!-- Bouton -->
-      <button class="bg-white text-black text-lg lg:text-xl rounded-full px-8 py-4 w-fit">
+      <button class="bg-white text-black text-base sm:text-lg lg:text-xl rounded-full px-6 sm:px-8 py-3 sm:py-4 w-fit mx-auto xl:mx-0 hover:bg-gray-100 transition-colors duration-300 hover:scale-105 transform">
         Explore
       </button>
     </div>
 
     <!-- Grille d'images -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-6xl ml-10" >
-      <!-- Génération dynamique d’images -->
-      <div class="flex flex-col gap-2">
-        <div class="bg-cover bg-center bg-img-1 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-2 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-3 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-4 w-[160px] h-[180px] rounded-5xl"></div>
-      </div>
-      <div class="flex flex-col gap-2">
-        <div class="bg-cover bg-center bg-img-5 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-6 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-7 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-8 w-[160px] h-[180px] rounded-5xl"></div>
-      </div>
-      <div class="flex flex-col gap-2">
-        <div class="bg-cover bg-center bg-img-9 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-10 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-11 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-12 w-[160px] h-[180px] rounded-5xl"></div>
-      </div>
-      <div class="flex flex-col gap-2">
-        <div class="bg-cover bg-center bg-img-13 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-14 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-15 w-[160px] h-[180px] rounded-5xl"></div>
-        <div class="bg-cover bg-center bg-img-16 w-[160px] h-[180px] rounded-5xl"></div>
+    <div class="image-grid w-full max-w-2xl xl:max-w-none">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
+        <!-- Colonne 1 -->
+        <div class="flex flex-col gap-2 sm:gap-3 lg:gap-4">
+          <div class="bg-cover bg-center bg-img-1 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-2 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-3 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-4 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+        </div>
+        
+        <!-- Colonne 2 -->
+        <div class="flex flex-col gap-2 sm:gap-3 lg:gap-4">
+          <div class="bg-cover bg-center bg-img-5 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-6 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-7 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-8 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+        </div>
+        
+        <!-- Colonne 3 (cachée sur mobile) -->
+        <div class=" flex flex-col gap-2 sm:gap-3 lg:gap-4">
+          <div class="bg-cover bg-center bg-img-9 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-10 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-11 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-12 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+        </div>
+        
+        <!-- Colonne 4 (cachée sur tablette et mobile) -->
+        <div class=" flex flex-col gap-2 sm:gap-3 lg:gap-4">
+          <div class="bg-cover bg-center bg-img-13 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-14 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-15 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+          <div class="bg-cover bg-center bg-img-16 image-card aspect-[8/9] w-full max-w-[160px] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-5xl"></div>
+        </div>
       </div>
     </div>
   </div>
